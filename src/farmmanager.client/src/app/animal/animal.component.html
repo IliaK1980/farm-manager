@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Farm Animal Management</h2>
+
+  <div *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </div>
+
+  <div class="add-animal">
+    <input [(ngModel)]="newAnimalName" placeholder="Enter animal name" />
+    <button (click)="addAnimal()">Add Animal</button>
+  </div>
+
+  <div *ngIf="animals.length > 0">
+    <h3>Animals on the Farm</h3>
+    <ul>
+      <li *ngFor="let animal of animals">
+        {{ animal.name }}
+        <button (click)="removeAnimal(animal.name)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>
